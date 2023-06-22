@@ -13,4 +13,21 @@ const getWeatherFromCity = async (city) => {
     });
 };
 
-getWeatherFromCity("New Delhi");
+// getWeatherFromCity("New Delhi");
+
+const getWeatherFromIp = async () => {
+  fetch(
+    `http://api.weatherapi.com/v1/ip.json?key=48df9710e82d465da64214434232006&q=auto:ip`,
+    {
+      mode: "cors",
+    }
+  )
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      console.log(response);
+    });
+};
+
+getWeatherFromIp();
