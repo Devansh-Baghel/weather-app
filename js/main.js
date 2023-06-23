@@ -1,6 +1,6 @@
 import {
 	IP,
-	getWeatherFromCity
+	CITY
 } from "./utils";
 
 const humidity = `${IP.getHumidity()}%`
@@ -13,3 +13,6 @@ const celsius = `${IP.getTempCelsius()}°C`
 const fahrenheit = `${IP.getTempFahrenheit()}°F`
 
 console.log(humidity, condition, city, country, rain, wind, celsius, fahrenheit);
+
+const cityFromSearch = await CITY.getCity("New Delhi");
+console.log(cityFromSearch);
