@@ -1,14 +1,11 @@
 import {
-	getHumidityFromIp,
-	getConditionFromIp,
-	getCountryFromIp,
-	getCityFromIp,
+	IP,
 	getWeatherFromCity
 } from "./utils";
 
-const humidity = `${await getHumidityFromIp()}%`
-const condition = await getConditionFromIp();
-const city = await getCityFromIp();
-const country = await getCountryFromIp();
+const humidity = `${await IP.getHumidity()}%`
+const condition = await IP.getCondition();
+const city = await IP.getCity();
+const country = await IP.getCountry();
 
 console.log(humidity, condition, city, country);
