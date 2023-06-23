@@ -3,10 +3,13 @@ import {
 	getWeatherFromCity
 } from "./utils";
 
-const humidity = `${await IP.getHumidity()}%`
-const condition = await IP.getCondition();
-const city = await IP.getCity();
-const country = await IP.getCountry();
-const rain = `${await IP.getRain()}cm`
+const humidity = `${IP.getHumidity()}%`
+const condition = IP.getCondition();
+const city = IP.getCity();
+const country = IP.getCountry();
+const rain = `${IP.getRain()}cm`
+const wind = `${IP.getWind()}km/h`
+const celsius = `${IP.getTempCelsius()}°C`
+const fahrenheit = `${IP.getTempFahrenheit()}°F`
 
-console.log(humidity, condition, city, country, rain);
+console.log(humidity, condition, city, country, rain, wind, celsius, fahrenheit);

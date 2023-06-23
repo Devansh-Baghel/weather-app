@@ -4,6 +4,7 @@ const getWeatherFromCity = async (city) => {
   return data;
 };
 
+
 const IP = {
   getIp: async () => {
     const response = await fetch(`http://api.weatherapi.com/v1/ip.json?key=48df9710e82d465da64214434232006&q=auto:ip`, { mode: "cors" })
@@ -18,34 +19,22 @@ const IP = {
     return data;
   },
 
-  getCity: async () => {
-    const data = await IP.getWeather();
-    return data.location.name;
-  },
-
-  getCountry: async () => {
-    const data = await IP.getWeather();
-    return data.location.country;
-  },
-
-  getCondition: async () => {
-    const data = await IP.getWeather();
-    return data.current.condition.text;
-  },
-
-  getHumidity: async () => {
-    const data = await IP.getWeather();
-    return data.current.humidity;
-  },
-
-  getRain: async () => {
-    const data = await IP.getWeather();
-    const rainMm = data.current.precip_mm;
+  getRain: () => {
+    const rainMm = WEATHER.current.precip_mm;
     const rainCm = rainMm / 10;
     return rainCm;
-  }
+  },
+
+  getCity: () => { return WEATHER.location.name },
+  getCountry: () => { return WEATHER.location.country },
+  getCondition: () => { return WEATHER.current.condition.text },
+  getHumidity: () => { return WEATHER.current.humidity },
+  getWind: () => { return WEATHER.current.wind_kph },
+  getTempCelsius: () => { return WEATHER.current.temp_c },
+  getTempFahrenheit: () => { return WEATHER.current.temp_f }
 }
 
+const WEATHER = await IP.getWeather();
 
 // city, country, date, temp, rainfall, wind, humidity, next 7 days temp
 
