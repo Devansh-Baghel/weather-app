@@ -19,23 +19,30 @@ const IP = {
   },
 
   getCity: async () => {
-    const city = await IP.getWeather();
-    return city.location.name;
+    const data = await IP.getWeather();
+    return data.location.name;
   },
 
   getCountry: async () => {
-    const country = await IP.getWeather();
-    return country.location.country;
+    const data = await IP.getWeather();
+    return data.location.country;
   },
 
   getCondition: async () => {
-    const condition = await IP.getWeather();
-    return condition.current.condition.text;
+    const data = await IP.getWeather();
+    return data.current.condition.text;
   },
 
   getHumidity: async () => {
-    const humidity = await IP.getWeather();
-    return humidity.current.humidity;
+    const data = await IP.getWeather();
+    return data.current.humidity;
+  },
+
+  getRain: async () => {
+    const data = await IP.getWeather();
+    const rainMm = data.current.precip_mm;
+    const rainCm = rainMm / 10;
+    return rainCm;
   }
 }
 
