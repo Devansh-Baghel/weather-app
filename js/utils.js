@@ -17,4 +17,20 @@ const getWeatherFromIp = async () => {
   return data;
 };
 
-export { getWeatherFromIp, getWeatherFromCity };
+const getCityFromIp = async () => {
+  const city = await getWeatherFromIp();
+  return city.location.name;
+};
+
+const getCountryFromIp = async () => {
+  const country = await getWeatherFromIp();
+  return country.location.country;
+};
+
+// city, country, date, weather, rainfall, wind, humidity, next 7 days weather
+
+export {
+  getCityFromIp,
+  getCountryFromIp,
+  getWeatherFromCity
+};
