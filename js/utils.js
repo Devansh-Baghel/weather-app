@@ -1,15 +1,7 @@
-const CITY = {
-  getWeatherFromCity: async (city) => {
-    const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=48df9710e82d465da64214434232006&q=${city}`, { mode: "cors" })
-    const data = await response.json();
-    return data;
-  },
-
-  getCity: async (city) => {
-    const data = await CITY.getWeatherFromCity(city);
-    return data.location.name;
-  },
-
+const getWeatherFromCity = async (city) => {
+  const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=48df9710e82d465da64214434232006&q=${city}`, { mode: "cors" })
+  const data = await response.json();
+  return data;
 }
 
 const IP = {
@@ -44,6 +36,6 @@ const IP = {
 const weatherFromIp = await IP.getWeather();
 
 export {
-  CITY,
+  getWeatherFromCity,
   IP
 };

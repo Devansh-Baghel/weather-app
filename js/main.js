@@ -1,18 +1,27 @@
 import {
 	IP,
-	CITY
+	getWeatherFromCity
 } from "./utils";
 
-const humidity = `${IP.getHumidity()}%`
-const condition = IP.getCondition();
-const city = IP.getCity();
-const country = IP.getCountry();
-const rain = `${IP.getRain()}cm`
-const wind = `${IP.getWind()}km/h`
-const celsius = `${IP.getTempCelsius()}°C`
-const fahrenheit = `${IP.getTempFahrenheit()}°F`
+const humidityFromIp = `${IP.getHumidity()}%`
+const conditionFromIp = IP.getCondition();
+const cityFromIp = IP.getCity();
+const countryFromIp = IP.getCountry();
+const rainFromIp = `${IP.getRain()}cm`
+const windFromIp = `${IP.getWind()}km/h`
+const celsiusFromIp = `${IP.getTempCelsius()}°C`
+const fahrenheitFromIp = `${IP.getTempFahrenheit()}°F`
 
-console.log(humidity, condition, city, country, rain, wind, celsius, fahrenheit);
+console.log(humidityFromIp, conditionFromIp, cityFromIp, countryFromIp, rainFromIp, windFromIp, celsiusFromIp, fahrenheitFromIp);
 
-const cityFromSearch = await CITY.getCity("New Delhi");
-console.log(cityFromSearch);
+const weatherFromSearch = await getWeatherFromCity("New Delhi");
+const humidityFromSearch = `${weatherFromSearch.current.humidity}%`
+const conditionFromSearch = weatherFromSearch.current.condition.text;
+const cityFromSearch = weatherFromSearch.location.name;
+const countryFromSearch = weatherFromSearch.location.country;
+const rainFromSearch = `${weatherFromSearch.current.precip_mm / 10}cm`
+const windFromSearch = `${weatherFromSearch.current.wind_kph}km/h`
+const celsiusFromSearch = `${weatherFromSearch.current.temp_c}°C`
+const fahrenheitFromSearch = `${weatherFromSearch.current.temp_f}°F`
+
+console.log(humidityFromSearch, conditionFromSearch, cityFromSearch, countryFromSearch, rainFromSearch, windFromSearch, celsiusFromSearch, fahrenheitFromSearch);
