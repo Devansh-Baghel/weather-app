@@ -1,8 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-body{
-  font-family: 'Inter', sans-serif;
-  background-image: url("../images/bg2.png");
-  background-size: cover;
+body.day{
+  background: rgb(253,134,29);
+  background: linear-gradient(0deg, rgb(255, 146, 51) 0%, rgba(255,216,156,1) 100%);
 }
 
+body{
+  font-family: 'Inter', sans-serif;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  // background-image: url("../images/bg2.png");
+  // background-size: cover;
+}
+
+form{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  img{
+    width: 25px;
+  }
+
+  input{
+    height: 30px;
+    padding-left: 20px;
+    border-radius: 100vw;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    width: min(90%, 500px);
+  }
+}
+
+.location-text{
+  margin-bottom: -10px;
+  margin-top: 4rem;
+}

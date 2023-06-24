@@ -21,7 +21,7 @@ const IP = {
   getRain: () => {
     const rainMm = weatherFromIp.current.precip_mm;
     const rainCm = rainMm / 10;
-    return rainCm;
+    return rainMm;
   },
 
   getCity: () => { return weatherFromIp.location.name },

@@ -9,7 +9,7 @@ const conditionFromIp = IP.getCondition();
 const conditionIconFromIp = IP.getConditionImg();
 const cityFromIp = IP.getCity();
 const countryFromIp = IP.getCountry();
-const rainFromIp = `${IP.getRain()}cm`
+const rainFromIp = `${IP.getRain()}mm`
 const windFromIp = `${IP.getWind()}km/h`
 const celsiusFromIp = IP.getTempCelsius()
 const fahrenheitFromIp = IP.getTempFahrenheit()
@@ -44,7 +44,7 @@ const DOM = {
 		conditionImg.src = weatherFromSearch.current.condition.icon;
 		temprature.innerHTML = `${weatherFromSearch.current.temp_c}<sup>°C</sup>`;
 		conditionText.innerText = weatherFromSearch.current.condition.text;
-		rainValue.innerText = `${weatherFromSearch.current.precip_mm / 10}cm`;
+		rainValue.innerText = `${weatherFromSearch.current.precip_mm}mm`;
 		windValue.innerText = `${weatherFromSearch.current.wind_kph}km/h`;
 		humidityValue.innerText = `${weatherFromSearch.current.humidity}%`;
 	}
