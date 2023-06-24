@@ -31,7 +31,8 @@ const IP = {
   getHumidity: () => { return weatherFromIp.current.humidity },
   getWind: () => { return weatherFromIp.current.wind_kph },
   getTempCelsius: () => { return weatherFromIp.current.temp_c },
-  getTempFahrenheit: () => { return weatherFromIp.current.temp_f }
+  getTempFahrenheit: () => { return weatherFromIp.current.temp_f },
+  getIsDay: () => { return weatherFromIp.current.is_day }
 }
 
 const weatherFromIp = await IP.getWeather();

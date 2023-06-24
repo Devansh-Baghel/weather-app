@@ -1,4 +1,3 @@
-import { doc } from "prettier";
 import {
 	IP,
 	getWeatherFromCity
@@ -11,8 +10,8 @@ const cityFromIp = IP.getCity();
 const countryFromIp = IP.getCountry();
 const rainFromIp = `${IP.getRain()}mm`
 const windFromIp = `${IP.getWind()}km/h`
-const celsiusFromIp = IP.getTempCelsius()
-const fahrenheitFromIp = IP.getTempFahrenheit()
+const celsiusFromIp = IP.getTempCelsius();
+const fahrenheitFromIp = IP.getTempFahrenheit();
 
 const locationText = document.querySelector("#location-text");
 const dateText = document.querySelector("#date-text");
@@ -22,6 +21,7 @@ const conditionText = document.querySelector("#condition-text");
 const rainValue = document.querySelector("#rain-value");
 const windValue = document.querySelector("#wind-value");
 const humidityValue = document.querySelector("#humidity-value");
+const body = document.querySelector("body");
 
 const DOM = {
 	updateDisplayFromIp: () => {
@@ -36,6 +36,8 @@ const DOM = {
 		rainValue.innerText = rainFromIp;
 		windValue.innerText = windFromIp;
 		humidityValue.innerText = humidityFromIp;
+
+		DOM.updateDayNight(IP.getIsDay());
 	},
 
 	updateDisplayFromSearch: async (city) => {
@@ -47,6 +49,18 @@ const DOM = {
 		rainValue.innerText = `${weatherFromSearch.current.precip_mm}mm`;
 		windValue.innerText = `${weatherFromSearch.current.wind_kph}km/h`;
 		humidityValue.innerText = `${weatherFromSearch.current.humidity}%`;
+
+		DOM.updateDayNight(weatherFromSearch.current.is_day);
+	},
+
+	updateDayNight: (isDay) => {
+		if (isDay === 1) {
+			body.classList.remove("night");
+			body.classList.add("day");
+		} else {
+			body.classList.remove("day");
+			body.classList.add("night");
+		}
 	}
 }
 
