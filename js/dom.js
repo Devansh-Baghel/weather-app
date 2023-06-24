@@ -6,6 +6,7 @@ import {
 
 const humidityFromIp = `${IP.getHumidity()}%`
 const conditionFromIp = IP.getCondition();
+const conditionIconFromIp = IP.getConditionImg();
 const cityFromIp = IP.getCity();
 const countryFromIp = IP.getCountry();
 const rainFromIp = `${IP.getRain()}cm`
@@ -45,7 +46,7 @@ const DOM = {
 		date = date.toDateString();
 		date = date.slice(0, 10);
 		dateText.innerText = date;
-		// conditionImg.src = 
+		conditionImg.src = conditionIconFromIp;
 		temprature.innerHTML = `${celsiusFromIp}<sup>°C</sup>`;
 		conditionText.innerText = conditionFromIp;
 		rainValue.innerText = rainFromIp;

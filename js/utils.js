@@ -27,6 +27,7 @@ const IP = {
   getCity: () => { return weatherFromIp.location.name },
   getCountry: () => { return weatherFromIp.location.country },
   getCondition: () => { return weatherFromIp.current.condition.text },
+  getConditionImg: () => { return weatherFromIp.current.condition.icon },
   getHumidity: () => { return weatherFromIp.current.humidity },
   getWind: () => { return weatherFromIp.current.wind_kph },
   getTempCelsius: () => { return weatherFromIp.current.temp_c },
