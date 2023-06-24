@@ -14,19 +14,6 @@ const windFromIp = `${IP.getWind()}km/h`
 const celsiusFromIp = IP.getTempCelsius()
 const fahrenheitFromIp = IP.getTempFahrenheit()
 
-// console.log(humidityFromIp, conditionFromIp, cityFromIp, countryFromIp, rainFromIp, windFromIp, celsiusFromIp, fahrenheitFromIp);
-
-const weatherFromSearch = await getWeatherFromCity("New Delhi");
-const humidityFromSearch = `${weatherFromSearch.current.humidity}%`
-const conditionFromSearch = weatherFromSearch.current.condition.text;
-const cityFromSearch = weatherFromSearch.location.name;
-const countryFromSearch = weatherFromSearch.location.country;
-const rainFromSearch = `${weatherFromSearch.current.precip_mm / 10}cm`
-const windFromSearch = `${weatherFromSearch.current.wind_kph}km/h`
-const celsiusFromSearch = `${weatherFromSearch.current.temp_c}°C`
-const fahrenheitFromSearch = `${weatherFromSearch.current.temp_f}°F`
-
-
 const locationText = document.querySelector("#location-text");
 const dateText = document.querySelector("#date-text");
 const conditionImg = document.querySelector("#condition-img");
@@ -36,12 +23,9 @@ const rainValue = document.querySelector("#rain-value");
 const windValue = document.querySelector("#wind-value");
 const humidityValue = document.querySelector("#humidity-value");
 
-
-// console.log(humidityFromSearch, conditionFromSearch, cityFromSearch, countryFromSearch, rainFromSearch, windFromSearch, celsiusFromSearch, fahrenheitFromSearch);
-
 const DOM = {
 	updateDisplayFromIp: () => {
-		locationText.innerHTML = `${cityFromIp},<br>${countryFromIp}`
+		locationText.innerHTML = `${cityFromIp},<br>${countryFromIp}`;
 		let date = new Date();
 		date = date.toDateString();
 		date = date.slice(0, 10);
@@ -52,6 +36,17 @@ const DOM = {
 		rainValue.innerText = rainFromIp;
 		windValue.innerText = windFromIp;
 		humidityValue.innerText = humidityFromIp;
+	},
+
+	updateDisplayFromSearch: async (city) => {
+		const weatherFromSearch = await getWeatherFromCity(city);
+		locationText.innerHTML = `${weatherFromSearch.location.name},<br>${weatherFromSearch.location.country}`;
+		conditionImg.src = weatherFromSearch.current.condition.icon;
+		temprature.innerHTML = `${weatherFromSearch.current.temp_c}<sup>°C</sup>`;
+		conditionText.innerText = weatherFromSearch.current.condition.text;
+		rainValue.innerText = `${weatherFromSearch.current.precip_mm / 10}cm`;
+		windValue.innerText = `${weatherFromSearch.current.wind_kph}km/h`;
+		humidityValue.innerText = `${weatherFromSearch.current.humidity}%`;
 	}
 }
 
