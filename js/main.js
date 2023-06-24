@@ -7,7 +7,7 @@ const searchInput = document.querySelector("#search-input");
 DOM.updateDisplayFromIp();
 
 searchForm.addEventListener("submit", (e) => {
-	e.preventDefault();
-	if (searchInput.value === "") return;
-	DOM.updateDisplayFromSearch(searchInput.value);
+  e.preventDefault();
+  if (searchInput.value === "") return;
+  DOM.updateDisplayFromSearch(searchInput.value);
 });
