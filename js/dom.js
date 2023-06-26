@@ -10,6 +10,7 @@ const windFromIp = `${IP.getWind()}km/h`;
 const celsiusFromIp = IP.getTempCelsius();
 const fahrenheitFromIp = IP.getTempFahrenheit();
 
+const body = document.querySelector("body");
 const locationText = document.querySelector("#location-text");
 const dateText = document.querySelector("#date-text");
 const conditionImg = document.querySelector("#condition-img");
@@ -18,7 +19,17 @@ const conditionText = document.querySelector("#condition-text");
 const rainValue = document.querySelector("#rain-value");
 const windValue = document.querySelector("#wind-value");
 const humidityValue = document.querySelector("#humidity-value");
-const body = document.querySelector("body");
+
+// Forecast Selectors
+const forecastDay1 = document.querySelector("#forecast-1-day");
+const forecastDay2 = document.querySelector("#forecast-2-day");
+const forecastDay3 = document.querySelector("#forecast-3-day");
+const forecastDay4 = document.querySelector("#forecast-4-day");
+const forecastTemp1 = document.querySelector("#forecast-1-temp");
+const forecastTemp2 = document.querySelector("#forecast-2-temp");
+const forecastTemp3 = document.querySelector("#forecast-3-temp");
+const forecastTemp4 = document.querySelector("#forecast-4-temp");
+
 
 const DOM = {
   updateDisplayFromIp: () => {
@@ -48,6 +59,17 @@ const DOM = {
     humidityValue.innerText = `${weatherFromSearch.current.humidity}%`;
 
     DOM.updateDayNight(weatherFromSearch.current.is_day);
+    console.log(weatherFromSearch);
+
+    // Updating forecast display
+    forecastDay1.innerText = weatherFromSearch.forecast.forecastday[0].date;
+    forecastDay2.innerText = weatherFromSearch.forecast.forecastday[1].date;
+    forecastDay3.innerText = weatherFromSearch.forecast.forecastday[2].date;
+    forecastDay4.innerText = weatherFromSearch.forecast.forecastday[3].date;
+    forecastTemp1.innerText = `${weatherFromSearch.forecast.forecastday[0].day.avgtemp_c} °C`;
+    forecastTemp2.innerText = `${weatherFromSearch.forecast.forecastday[1].day.avgtemp_c} °C`;
+    forecastTemp3.innerText = `${weatherFromSearch.forecast.forecastday[2].day.avgtemp_c} °C`;
+    forecastTemp4.innerText = `${weatherFromSearch.forecast.forecastday[3].day.avgtemp_c} °C`;
   },
 
   updateDayNight: (isDay) => {
@@ -58,7 +80,8 @@ const DOM = {
       body.classList.remove("day");
       body.classList.add("night");
     }
-  },
+  }
+
 };
 
 export { DOM };

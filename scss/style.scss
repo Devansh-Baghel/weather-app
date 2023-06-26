@@ -27,8 +27,8 @@ body {
   // background-image: url("../images/bg2.png");
   // background-size: cover;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center;
+  gap: 5rem;
 
 }
 
@@ -91,11 +91,8 @@ sup {
   margin-top: 30px;
 }
 
-.card {
+.card{
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
-  align-items: center;
-  gap: 10px;
   background-color: rgba(255, 255, 255, 0.438);
   margin-top: 10px;
   margin-bottom: 10px;
@@ -109,5 +106,32 @@ sup {
 
   span {
     text-align: end;
+  }
+}
+
+.card-container > div {
+  grid-template-columns: 1fr 10fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.right-content{
+  display: none;
+}
+
+.right-content > .card {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: 300px;
+  padding-left: 20px;
+
+  sup{
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .right-content{
+    display: block;
   }
 }
