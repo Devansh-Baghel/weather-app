@@ -1,16 +1,5 @@
 import { IP, getWeatherFromCity } from "./utils";
 
-const humidityFromIp = `${IP.getHumidity()}%`;
-const conditionFromIp = IP.getCondition();
-const conditionIconFromIp = IP.getConditionImg();
-const cityFromIp = IP.getCity();
-const countryFromIp = IP.getCountry();
-const rainFromIp = `${IP.getRain()}mm`;
-const windFromIp = `${IP.getWind()}km/h`;
-const celsiusFromIp = IP.getTempCelsius();
-const weatherFromIp = await IP.getWeather();
-const fahrenheitFromIp = IP.getTempFahrenheit();
-
 const body = document.querySelector("body");
 const locationText = document.querySelector("#location-text");
 const dateText = document.querySelector("#date-text");
@@ -31,23 +20,23 @@ const forecastTemp2 = document.querySelector("#forecast-2-temp");
 const forecastTemp3 = document.querySelector("#forecast-3-temp");
 const forecastTemp4 = document.querySelector("#forecast-4-temp");
 
+const weatherFromIp = await IP.getWeather();
 
 const DOM = {
   updateDisplayFromIp: () => {
-    locationText.innerHTML = `${cityFromIp},<br>${countryFromIp}`;
+    locationText.innerHTML = `${weatherFromIp.location.name},<br>${weatherFromIp.location.country}`;
     let date = new Date();
     date = date.toDateString();
     date = date.slice(0, 10);
     dateText.innerText = date;
-    conditionImg.src = conditionIconFromIp;
-    temprature.innerHTML = `${celsiusFromIp}<sup>°C</sup>`;
-    conditionText.innerText = conditionFromIp;
-    rainValue.innerText = rainFromIp;
-    windValue.innerText = windFromIp;
-    humidityValue.innerText = humidityFromIp;
+    conditionImg.src = weatherFromIp.current.condition.icon;
+    temprature.innerHTML = `${weatherFromIp.current.temp_c}<sup>°C</sup>`;
+    conditionText.innerText = weatherFromIp.current.condition.text;
+    rainValue.innerText = `${weatherFromIp.current.precip_mm}mm`;
+    windValue.innerText = `${weatherFromIp.current.wind_kph}km/h`;
+    humidityValue.innerText = `${weatherFromIp.current.humidity}%`;
 
-    DOM.updateDayNight(IP.getIsDay());
-
+    // Updating forecast
     forecastDay1.innerText = weatherFromIp.forecast.forecastday[0].date;
     forecastDay2.innerText = weatherFromIp.forecast.forecastday[1].date;
     forecastDay3.innerText = weatherFromIp.forecast.forecastday[2].date;
@@ -56,6 +45,8 @@ const DOM = {
     forecastTemp2.innerText = `${weatherFromIp.forecast.forecastday[1].day.avgtemp_c} °C`;
     forecastTemp3.innerText = `${weatherFromIp.forecast.forecastday[2].day.avgtemp_c} °C`;
     forecastTemp4.innerText = `${weatherFromIp.forecast.forecastday[3].day.avgtemp_c} °C`;
+
+    DOM.updateDayNight(weatherFromIp.current.is_day);
   },
 
   updateDisplayFromSearch: async (city) => {

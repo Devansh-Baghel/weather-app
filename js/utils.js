@@ -25,39 +25,7 @@ const IP = {
     );
     const data = await response.json();
     return data;
-  },
-
-  getRain: () => {
-    return weatherFromIp.current.precip_mm;
-  },
-
-  getCity: () => {
-    return weatherFromIp.location.name;
-  },
-  getCountry: () => {
-    return weatherFromIp.location.country;
-  },
-  getCondition: () => {
-    return weatherFromIp.current.condition.text;
-  },
-  getConditionImg: () => {
-    return weatherFromIp.current.condition.icon;
-  },
-  getHumidity: () => {
-    return weatherFromIp.current.humidity;
-  },
-  getWind: () => {
-    return weatherFromIp.current.wind_kph;
-  },
-  getTempCelsius: () => {
-    return weatherFromIp.current.temp_c;
-  },
-  getTempFahrenheit: () => {
-    return weatherFromIp.current.temp_f;
-  },
-  getIsDay: () => {
-    return weatherFromIp.current.is_day;
-  },
+  }
 };
 
 const weatherFromIp = await IP.getWeather();
