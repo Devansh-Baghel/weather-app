@@ -20,7 +20,7 @@ const IP = {
   getWeather: async () => {
     const ip = await IP.getIp();
     const response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=48df9710e82d465da64214434232006&q=${ip}`,
+      `http://api.weatherapi.com/v1/forecast.json?key=48df9710e82d465da64214434232006&q=${ip}&days=4`,
       { mode: "cors" }
     );
     const data = await response.json();
@@ -28,8 +28,7 @@ const IP = {
   },
 
   getRain: () => {
-    const rainMm = weatherFromIp.current.precip_mm;
-    return rainMm;
+    return weatherFromIp.current.precip_mm;
   },
 
   getCity: () => {

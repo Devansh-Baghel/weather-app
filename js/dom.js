@@ -8,6 +8,7 @@ const countryFromIp = IP.getCountry();
 const rainFromIp = `${IP.getRain()}mm`;
 const windFromIp = `${IP.getWind()}km/h`;
 const celsiusFromIp = IP.getTempCelsius();
+const weatherFromIp = await IP.getWeather();
 const fahrenheitFromIp = IP.getTempFahrenheit();
 
 const body = document.querySelector("body");
@@ -46,6 +47,15 @@ const DOM = {
     humidityValue.innerText = humidityFromIp;
 
     DOM.updateDayNight(IP.getIsDay());
+
+    forecastDay1.innerText = weatherFromIp.forecast.forecastday[0].date;
+    forecastDay2.innerText = weatherFromIp.forecast.forecastday[1].date;
+    forecastDay3.innerText = weatherFromIp.forecast.forecastday[2].date;
+    forecastDay4.innerText = weatherFromIp.forecast.forecastday[3].date;
+    forecastTemp1.innerText = `${weatherFromIp.forecast.forecastday[0].day.avgtemp_c} °C`;
+    forecastTemp2.innerText = `${weatherFromIp.forecast.forecastday[1].day.avgtemp_c} °C`;
+    forecastTemp3.innerText = `${weatherFromIp.forecast.forecastday[2].day.avgtemp_c} °C`;
+    forecastTemp4.innerText = `${weatherFromIp.forecast.forecastday[3].day.avgtemp_c} °C`;
   },
 
   updateDisplayFromSearch: async (city) => {
@@ -59,7 +69,6 @@ const DOM = {
     humidityValue.innerText = `${weatherFromSearch.current.humidity}%`;
 
     DOM.updateDayNight(weatherFromSearch.current.is_day);
-    console.log(weatherFromSearch);
 
     // Updating forecast display
     forecastDay1.innerText = weatherFromSearch.forecast.forecastday[0].date;
