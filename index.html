@@ -1,58 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Weather App</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="scss/style.scss" rel="stylesheet" />
-    <script src="js/main.js" type="module" defer></script>
-  </head>
 
-  <body class="night">
+<head>
+  <title>Weather App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="scss/style.scss" rel="stylesheet" />
+  <script src="js/main.js" type="module" defer></script>
+</head>
 
-    <div class="content">
-      <form class="search-nav" id="search-form">
-        <input
-          type="search"
-          name="city-search"
-          id="search-input"
-          placeholder="Search a City"
-        />
-        <label for="search-input"
-          ><img src="images/search-dark.png" alt=""
-        /></label>
-      </form>
+<body class="night">
+  <div class="left-content">
+    <form class="search-nav" id="search-form">
+      <input type="search" name="city-search" id="search-input" placeholder="Search a City" />
+      <label for="search-input"><img src="images/search-dark.png" alt="" /></label>
+    </form>
 
-      <h2 class="location-text" id="location-text">Stockholm,<br />Sweden</h2>
-      <p class="date-text" id="date-text">Tue, Jun 30</p>
+    <h2 class="location-text" id="location-text">Stockholm,<br />Sweden</h2>
+    <p class="date-text" id="date-text">Tue, Jun 30</p>
 
-      <div class="hero">
-        <img src="" alt="" id="condition-img" class="condition-img" />
-        <div class="temprature-wrapper">
-          <h1 class="temprature" id="temprature">19<sup>°C</sup></h1>
-          <h2 id="condition-text" class="condition-text">Rainy</h2>
-        </div>
+    <div class="hero">
+      <img src="" alt="" id="condition-img" class="condition-img" />
+      <div class="temprature-wrapper">
+        <h1 class="temprature" id="temprature">19<sup>°C</sup></h1>
+        <h2 id="condition-text" class="condition-text">Rainy</h2>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="rain-card card">
+        <img src="images/rain-fall.png" alt="" />
+        <p>Rainfall</p>
+        <span id="rain-value" class="rain-value">3cm</span>
       </div>
 
-      <div class="card-container">
-        <div class="rain-card">
-          <img src="images/rain-fall.png" alt="" />
-          <p>Rainfall</p>
-          <span id="rain-value" class="rain-value">3cm</span>
-        </div>
+      <div class="wind-card card">
+        <img src="images/wind.png" alt="" />
+        <p>Wind</p>
+        <span id="wind-value" class="wind-value">19km/h</span>
+      </div>
 
-        <div class="wind-card">
-          <img src="images/wind.png" alt="" />
-          <p>Wind</p>
-          <span id="wind-value" class="wind-value">19km/h</span>
-        </div>
-
-        <div class="humidity-card">
-          <img src="images/humidity.png" alt="" />
-          <p>Humidity</p>
-          <span id="humidity-value" class="humidity-value">64%</span>
-        </div>
-        </div>
+      <div class="humidity-card card">
+        <img src="images/humidity.png" alt="" />
+        <p>Humidity</p>
+        <span id="humidity-value" class="humidity-value">64%</span>
+      </div>
     </div>
-  </body>
+  </div>
+
+  <div class="right-content">
+    <h2 class="forecast-heading">
+      Next 4 Days
+    </h2>
+
+    <div class="card">
+      <p id="forecast-1-day">Mon</p>
+      <span id="forecast-1-temp">24</span>
+    </div>
+
+    <div class="card">
+      <p id="forecast-2-day"></p>
+      <span id="forecast-2-temp"></span>
+    </div>
+
+    <div class="card">
+      <p id="forecast-3-day"></p>
+      <span id="forecast-3-temp"></span>
+    </div>
+
+    <div class="card">
+      <p id="forecast-4-day"></p>
+      <span id="forecast-4-temp"></span>
+    </div>
+  </div>
+</body>
+
 </html>
