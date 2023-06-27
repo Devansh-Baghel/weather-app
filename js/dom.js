@@ -32,9 +32,9 @@ const DOM = {
     conditionImg.src = weatherFromIp.current.condition.icon;
     temprature.innerHTML = `${weatherFromIp.current.temp_c}<sup>°C</sup>`;
     conditionText.innerText = weatherFromIp.current.condition.text;
-    rainValue.innerText = `${weatherFromIp.current.precip_mm}mm`;
-    windValue.innerText = `${weatherFromIp.current.wind_kph}km/h`;
-    humidityValue.innerText = `${weatherFromIp.current.humidity}%`;
+    rainValue.innerText = `${weatherFromIp.current.precip_mm} mm`;
+    windValue.innerText = `${weatherFromIp.current.wind_kph} km/h`;
+    humidityValue.innerText = `${weatherFromIp.current.humidity} %`;
 
     // Updating forecast
     forecastDay1.innerText = weatherFromIp.forecast.forecastday[0].date;
@@ -55,9 +55,9 @@ const DOM = {
     conditionImg.src = weatherFromSearch.current.condition.icon;
     temprature.innerHTML = `${weatherFromSearch.current.temp_c}<sup>°C</sup>`;
     conditionText.innerText = weatherFromSearch.current.condition.text;
-    rainValue.innerText = `${weatherFromSearch.current.precip_mm}mm`;
-    windValue.innerText = `${weatherFromSearch.current.wind_kph}km/h`;
-    humidityValue.innerText = `${weatherFromSearch.current.humidity}%`;
+    rainValue.innerText = `${weatherFromSearch.current.precip_mm} mm`;
+    windValue.innerText = `${weatherFromSearch.current.wind_kph} km/h`;
+    humidityValue.innerText = `${weatherFromSearch.current.humidity} %`;
 
     DOM.updateDayNight(weatherFromSearch.current.is_day);
 
