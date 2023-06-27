@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Weather App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  
+  <script type="module" crossorigin src="/assets/index-9872b1a7.js"></script>
+  <link rel="stylesheet" href="/assets/index-ce9d65c0.css">
+</head>
+
+<body class="night">
+  <div class="left-content">
+    <form class="search-nav" id="search-form">
+      <input type="search" name="city-search" id="search-input" placeholder="Search a City" />
+      <label for="search-input"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAABFFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABIEvRKAAAAXHRSTlMANGycxt/52aZqJEuo/8degLcqquXM1FQgCT5y6CObyC0bua5DUbHcfwwUSmhVTraZFx3XQOOOxaMF8xNwOkWli79SLmOGotEEOYzyNcv4PV2+3k+Vwe2faUwzB0RydaEAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAFASURBVHicdZNpX4JAEIe3+2KLSMCrVMqyiyK7S43KTsvusr7/92hmYIFdfswLeeb/4MLAwlhYQ8Mjo2PjE5NT0yxdMxqPanZOtTqXat6Q7EIY58wQLCNldTvPWKFYKpNfjOwS9pWqaGsO9suiXaG/Jq9VTyarwGvynTYwWifcwFM3lUkqkG0RbatLY7kQ7hDtArmq9nBJWh1H3VM1a0K6jwDHg5RlmtA5zs20PhQaFy+k9BGkVYRjgKJqT04hPUM6ByipugVhmaiNVFN0B8KLAH1AR7aXOPZVwNfIdUlj0hXNDXaNWHZ59MywvFt64a6Hzd29E2yYVnS6YQVJU3vwH6MN14v9k7wVn+m3H1/v5TWWbzrNzXk7cbfvH59fEJnfP9j1yA/kefO/fwL75G2WVfg0uZ+p2QC/i2zNbN/S/wHrFyRCudJDIQAAAABJRU5ErkJggg==" alt="" /></label>
+    </form>
+
+    <h2 class="location-text" id="location-text">Stockholm,<br />Sweden</h2>
+    <p class="date-text" id="date-text">Tue, Jun 30</p>
+
+    <div class="hero">
+      <img src="" alt="" id="condition-img" class="condition-img" />
+      <div class="temprature-wrapper">
+        <h1 class="temprature" id="temprature">19<sup>°C</sup></h1>
+        <h2 id="condition-text" class="condition-text">Rainy</h2>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="rain-card card">
+        <img src="/assets/rain-fall-eceb51a0.png" alt="" />
+        <p>Rainfall</p>
+        <span id="rain-value" class="rain-value">3cm</span>
+      </div>
+
+      <div class="wind-card card">
+        <img src="/assets/wind-783a28c5.png" alt="" />
+        <p>Wind</p>
+        <span id="wind-value" class="wind-value">19km/h</span>
+      </div>
+
+      <div class="humidity-card card">
+        <img src="data:image/png;base64,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" alt="" />
+        <p>Humidity</p>
+        <span id="humidity-value" class="humidity-value">64%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="right-content">
+    <h2 class="forecast-heading">
+      Next 4 Days
+    </h2>
+
+    <div class="card">
+      <p id="forecast-1-day">Mon</p>
+      <span id="forecast-1-temp">24</span>
+    </div>
+
+    <div class="card">
+      <p id="forecast-2-day"></p>
+      <span id="forecast-2-temp"></span>
+    </div>
+
+    <div class="card">
+      <p id="forecast-3-day"></p>
+      <span id="forecast-3-temp"></span>
+    </div>
+
+    <div class="card">
+      <p id="forecast-4-day"></p>
+      <span id="forecast-4-temp"></span>
+    </div>
+  </div>
+</body>
+
+</html>
