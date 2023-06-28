@@ -123,13 +123,33 @@ sup {
   }
 }
 
+h1, h2{
+  color: black;
+  text-shadow: 2px -1px  #FFF;
+}
+
+.extra-info{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  .card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    width: 130px;
+    height: 170px;
+
+    span{
+      font-size: 40px;
+    }
+  }
+
+}
+
 @media only screen and (min-width: 700px) {
   .right-content{
     display: block;
   }
-}
-
-h1, h2{
-  color: black;
-  text-shadow: 2px -1px  #FFF;
 }
