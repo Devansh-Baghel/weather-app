@@ -9,6 +9,8 @@ const conditionText = document.querySelector("#condition-text");
 const rainValue = document.querySelector("#rain-value");
 const windValue = document.querySelector("#wind-value");
 const humidityValue = document.querySelector("#humidity-value");
+const uvIndexValue = document.querySelector("#uv-index");
+const cloudCoverValue = document.querySelector("#cloud-cover");
 
 // Forecast Selectors
 const forecastDay1 = document.querySelector("#forecast-1-day");
@@ -35,6 +37,8 @@ const DOM = {
     rainValue.innerText = `${weatherFromIp.current.precip_mm} mm`;
     windValue.innerText = `${weatherFromIp.current.wind_kph} km/h`;
     humidityValue.innerText = `${weatherFromIp.current.humidity} %`;
+    uvIndexValue.innerText = weatherFromIp.current.uv;
+    cloudCoverValue.innerText = `${weatherFromIp.current.cloud}%`;
 
     // Updating forecast
     forecastDay1.innerText = weatherFromIp.forecast.forecastday[0].date;
@@ -58,6 +62,8 @@ const DOM = {
     rainValue.innerText = `${weatherFromSearch.current.precip_mm} mm`;
     windValue.innerText = `${weatherFromSearch.current.wind_kph} km/h`;
     humidityValue.innerText = `${weatherFromSearch.current.humidity} %`;
+    uvIndexValue.innerText = weatherFromSearch.current.uv;
+    cloudCoverValue.innerText = `${weatherFromSearch.current.cloud}%`;
 
     DOM.updateDayNight(weatherFromSearch.current.is_day);
 
