@@ -148,6 +148,12 @@ h1, h2{
 
 }
 
+footer{
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+}
+
 @media only screen and (min-width: 700px) {
   .right-content{
     display: block;
