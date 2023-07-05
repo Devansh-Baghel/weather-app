@@ -25,6 +25,10 @@ body {
 
 }
 
+::-webkit-scrollbar{
+  background-color: transparent;
+}
+
 .left-content{
   max-width: 425px;
 }
